@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "$0"
+exit
+
+if [ "$1" == "setup" ]
+then
+	echo "53 23 * * * root //etc/cron.d/sysstat"
+else
+	spacecmd -q -- "scap_schedulexccdfscan  /usr/share/xml/scap/ssg/content/ssg-rhel6-xccdf.xml 'profile common' group:OSCAP"
+fi

@@ -1,0 +1,3 @@
+#cobbler  system add --name router --interface eth0  --ip-address 10.180.1.20 --dns-name router.lab --hostname router.lab --profile  centos6:1:SpacewalkDefaultOrganization --mac 00:0c:29:94:97:a9
+cobbler  system add --name spacewalk01 --interface eth0  --ip-address 10.180.1.21 --dns-name spacewalk01.lab --hostname spacewalk01.lab --profile centos-6 --mac 00:0c:29:50:cf:6c
+

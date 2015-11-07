@@ -1,0 +1,16 @@
+## Snippet: custom_gpg_keys
+##
+## Locate, copy and install all the GPG
+## keys that are available on the spacewalk/satellite server
+##
+SERVER=$server
+#raw
+KEY_LIST=$(wget -q http://spacewalk/pub/RPM-KEYS/ -O - | sed -e '/href/!d' -e 's/.*href="//' -e 's/".*//' -e '/^[/?]/d' -e '/\/$/d')
+for key in $KEY_LIST
+do
+	wget -P /etc/pki/rpm-gpg/  http://$SERVER/pub/RPM-KEYS/$key
+done
+
+( cd /etc/pki/rpm-gpg/ ; rpm --import $KEY_LIST )
+
+#end raw
